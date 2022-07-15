@@ -1,0 +1,23 @@
+.product_available{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    color: var(--wine);
+}
+
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    height: 250px;
+    line-height: 100px;
+}
+
+#errorBtn{
+    background: var(--green);
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

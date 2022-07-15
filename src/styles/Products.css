@@ -1,0 +1,49 @@
+/* @media screen and (max-width: 1068px){
+    .product div{
+        max-width: 100%;
+    }
+} */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.wait{
+    text-align: center;
+    margin-top: 40vh;
+}
+
+.product{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.product div{
+    border: 1px solid var(--lightBlue);
+    flex: 1;
+    text-align: center;
+    padding: 15px;
+}
+
+#product_img{
+    width: 200px;
+    height: 200px;
+}
+
+
+#product_name, #product_price{
+    margin-top: 0.5rem;
+    color: var(--skyBlue);
+}
+
+#product_info{
+    text-decoration: none;
+}
+
+#product_info:hover{
+    color: var(--wine);
+}

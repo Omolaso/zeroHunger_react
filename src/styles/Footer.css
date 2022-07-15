@@ -1,0 +1,15 @@
+.Footer{
+    margin-top: 100vh;
+    height: 50px;
+    line-height: 50px;
+    background: var(--green);
+    text-align: center;
+}
+
+p{
+    color: var(--black);
+}
+
+span{
+    color: var(--deepBlue);
+}
