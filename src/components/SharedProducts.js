@@ -19,22 +19,30 @@ const SharedProducts = () => {
 
   useEffect(() => {
     getProduct()
-  })
+  });
+
+  const { name, product_img, price } = produce
 
   function goToProducts(){
     navigate('/Home');
+  }
+
+  if(produce.length === 0){
+    return(
+      <h1 id='hold'>Please Wait...</h1>
+    )
   }
 
   return (
     <section className='productSection'>
      <div className='shared_products'>
         <div id='productImg'>
-          <img src={produce.product_img} alt={produce.name} />
+          <img src={ product_img } alt={ name } />
         </div>
         <div id='productDetails'>
           {/* <h1> {productsId} </h1> */}
-          <h1> {produce.name} </h1>
-          <h3> Current Price: ₦ {produce.price} </h3>
+          <h1> { name } </h1>
+          <h3> Current Price: ₦ { price } </h3>
           <h3>About the product:</h3>
           <p id='para'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero unde voluptatem alias, quam dolore ipsa! Quaerat, quas.</p>
           <div className='cart'>
