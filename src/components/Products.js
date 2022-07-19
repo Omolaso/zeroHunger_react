@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import '../styles/Products.css';
+import icon from '../images/icon.svg';
 import { Link } from 'react-router-dom';
 
 const Products = () => {
@@ -19,7 +20,10 @@ const Products = () => {
 
   if(get.length === 0){
     return(
-      <h1 className='wait'>Please Wait...</h1>
+      <div className='imgDiv'>
+        <img className='wait' src= {icon } alt="Loading..." />
+        <h2>Loading...</h2>
+      </div>
     )
   }
   const results = get.results
@@ -33,7 +37,7 @@ const Products = () => {
               <div key={result.id}>
                 <img src={result.product_img} alt={result.name} id='product_img' />
                 <p id='product_name'>{result.name}</p>
-                <p id='product_price'>₦{result.price}</p>
+                <p id='product_price'>₦{result.price}</p> <br/>
                 <Link to={`/Products/${result.id}`} id='product_info'>More Info</Link>
               </div>
           ))

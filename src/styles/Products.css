@@ -10,9 +10,25 @@
     margin: 0;
 }
 
-.wait{
+.imgDiv{
     text-align: center;
-    margin-top: 40vh;
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.wait{
+    animation: icon 10s linear infinite;
+    width: 150px;
+    height: 150px;
+}
+
+@keyframes icon {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 .product{
@@ -38,7 +54,8 @@
 
 #product_name, #product_price{
     margin-top: 0.5rem;
-    color: var(--skyBlue);
+    color: var(--black);
+    font-weight: bold;
 }
 
 #product_info{
