@@ -4,10 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faLemon } from '@fortawesome/free-regular-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import '../styles/NavLink.css';
 
 
 const NavLinks = () => {
+  const navigate = useNavigate();
+  const Login = () => {
+    navigate('/Login');
+  }
+  const Cart = () => {
+    navigate('/Cart');
+  }
+
 
   return (
     <section className='links'>
@@ -25,9 +34,9 @@ const NavLinks = () => {
           </ul>
           <ul className='nav2'>
             <li> <input type="text" placeholder='Search' id='input' /> </li>
-            <li> <FontAwesomeIcon id='cart' icon={ faCartShopping } /> </li>
-            <li> <button>Login</button> </li>
-            <li> <button>Sign Up</button> </li>
+            <li> <FontAwesomeIcon id='cart' onClick={Cart} icon={ faCartShopping } /> </li>
+            <li> <button onClick={Login}>Login</button> </li>
+            {/* <li> <button>Sign Up</button> </li> */}
           </ul>
         </div>
     </section>

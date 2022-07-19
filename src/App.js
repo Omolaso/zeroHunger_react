@@ -3,6 +3,8 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Error from './components/Error';
+import Login from './components/Login';
+import Cart from './components/Cart';
 import SharedLayout from './components/SharedLayout';
 import Products from './components/Products';
 import SharedProducts from './components/SharedProducts';
@@ -18,6 +20,8 @@ function App() {
           <Route path='/Products/:productsId' element={<SharedProducts/>}/>
           <Route path='/About' element={<About/>}/>
           <Route path='/Contact' element={<Contact/>}/>
+          <Route path='/Login' element={<Login/>}/>
+          <Route path='/Cart' element={<Cart/>}/>
           <Route path='*' element={<Error/>}/>
         </Route>
       </Routes>

@@ -58,6 +58,9 @@
     height: 70px;
     background: var(--lightBlue);
     padding: 15px;
+    position: sticky ;
+    top: 0;
+    bottom: 0;
 }
 
 .links .logo{
