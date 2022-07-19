@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/SharedProducts.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import icon from '../images/icon.svg'
 
 
 const SharedProducts = () => {
@@ -29,7 +30,10 @@ const SharedProducts = () => {
 
   if(produce.length === 0){
     return(
-      <h1 id='hold'>Please Wait...</h1>
+      <div className='imgDiv'>
+        <img className='wait' src= { icon } alt="Loading..." />
+        <h2>Loading...</h2>
+    </div>
     )
   }
 

@@ -21,7 +21,7 @@ const Products = () => {
   if(get.length === 0){
     return(
       <div className='imgDiv'>
-        <img className='wait' src= {icon } alt="Loading..." />
+        <img className='wait' src= { icon } alt="Loading..." />
         <h2>Loading...</h2>
       </div>
     )

@@ -67,7 +67,19 @@ button{
     font-weight: 700;
 }
 
-#hold{
+.imgDiv{
+    text-align: center;
+    margin-top: 5rem;
+    width: 100%;
+}
+
+.wait{
+    animation: icon 10s linear infinite;
+    width: 150px;
+    height: 150px;
+}
+
+/* #hold{
     text-align: center;
     margin-top: 30vh;
-}
+} */
