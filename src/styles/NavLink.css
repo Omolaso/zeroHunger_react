@@ -161,3 +161,12 @@
     color: var(--white);
     cursor: pointer;
 }
+
+/* HAMBURGER */
+.list{
+    position: fixed;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

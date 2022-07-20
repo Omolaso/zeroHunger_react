@@ -13,7 +13,7 @@ const SharedProducts = () => {
   function getProduct(){
     axios.get('https://zerohunger-backend.herokuapp.com/api/products/' + productsId)
     .then((res) => {
-      console.log( res.data);
+      // console.log(res.data);
       setProduce(res.data.product)
     });
   }

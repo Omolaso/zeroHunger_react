@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -17,6 +17,11 @@ const NavLinks = () => {
     navigate('/Cart');
   }
 
+  //HAMBURGER
+  const navRef = useRef();
+  const showNavBar = () => {
+    navRef.current.classlist.toggle("list")
+  }
 
   return (
     <section className='links'>
@@ -24,9 +29,9 @@ const NavLinks = () => {
           <div className='logo'>
             <Link to='/' id='link'><FontAwesomeIcon id='faLemon' icon={faLemon}/> ZeroHunger</Link>
           </div>
-          <div className='hambuger'> <FontAwesomeIcon id='bars' icon={faBars}/> </div>
+          <div className='hambuger' onClick={ showNavBar }> <FontAwesomeIcon id='bars' icon={faBars}/> </div>
        </div>
-        <div className='navbar'>
+        <div className='navbar' ref={navRef}>
           <ul className='nav1'>
             <li><Link to='/Home' id='link'>Home</Link></li>
             <li><Link to='/About' id='link'>About</Link> </li>
