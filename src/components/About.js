@@ -1,13 +1,10 @@
 import React from 'react';
 import '../styles/About.css';
 import me from '../images/me.jpg';
+import usen from '../images/usen.jpg';
 import github from '../images/github.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
-
-
-
 
 
 const About = () => {
@@ -44,13 +41,23 @@ const About = () => {
               <FontAwesomeIcon id='faEnvelope' icon={ faEnvelope }/> 
               </a>
             </div>
+
+            
             <div className="her">
-              <img src="" alt="" />
-              <h3>U.Y</h3>
+              <img src={ usen } alt="Unyime" />
+              <h3>Unyime Usen</h3>
               <p>FRONTEND DEVELOPER</p>
+              <a href="http://github.com/Unyime94" target="_blank" rel="noopener noreferrer">
+                <img id='githubImg' src={github} alt="github"/>
+              </a>
+              
+              <a href="mailto:unyimeusen01@gmail.com" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon id='faEnvelope' icon={ faEnvelope }/> 
+              </a>
+
             </div>
-        </div>
           </div>
+        </div>
       </div>
     </section>
   )

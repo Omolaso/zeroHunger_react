@@ -10,8 +10,7 @@
 }
 
 .shared_products{
-    margin: 50px;
-
+    margin: 50px auto;
     color: var(--white);
     width: 80%;
     display: flex;
@@ -51,6 +50,11 @@ button{
     cursor: pointer;
 }
 
+#back-home{
+    text-align: center;
+    margin-top: 10px;
+}
+
 .cart{
     display: flex;
     align-items: center;
@@ -78,8 +82,3 @@ button{
     width: 150px;
     height: 150px;
 }
-
-/* #hold{
-    text-align: center;
-    margin-top: 30vh;
-} */

@@ -133,25 +133,20 @@
 }
 
 .nav2 #cart{
-    font-size: 20px;
+    font-size: 25px;
     color: var(--green);
     cursor: pointer;
     position: relative;
-    border: 1px solid;
-    padding: 5px;
-    z-index: 10;
+    /* border: 1px solid; */
+    padding: 5px 20px;
 }
 
-/* .nav2 #cart::after{
-    content: '';
-    width: 10px;
-    height: 11px;
+#cart-items-amount{
+    font-weight: bold;
     position: absolute;
-    top: 50%;
-    right: 50%;
-    color: #000;
-    z-index: 11;
-} */
+    right: 115px;
+    background: darken(var(--lightBlue), 15%);
+}
 
 .nav2 button{
     padding: 5px 7px;

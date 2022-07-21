@@ -54,7 +54,9 @@ const SharedProducts = () => {
             <span id='cart'>Add to cart</span>
             <button> + </button> <br /> <br />
           </div>
-          <button onClick={goToProducts}>Back Home</button>
+          <div id='back-home'>
+            <button onClick={goToProducts}>Back Home</button>
+          </div>
         </div>
       </div>
     </section>
