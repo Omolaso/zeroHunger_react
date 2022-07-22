@@ -30,7 +30,7 @@ const About = () => {
           <h1>THE TEAM</h1>
           <div className="team">
             <div className="me">
-              <img src={ me } alt="TOBI" />
+              <img id='img' src={ me } alt="TOBI" />
               <h3>Tobi Adesanya</h3>
               <p>FRONTEND DEVELOPER</p>
               <a href="http://github.com/Omolaso" target="_blank" rel="noopener noreferrer">
@@ -44,7 +44,7 @@ const About = () => {
 
             
             <div className="her">
-              <img src={ usen } alt="Unyime" />
+              <img id='img' src={ usen } alt="Unyime" />
               <h3>Unyime Usen</h3>
               <p>FRONTEND DEVELOPER</p>
               <a href="http://github.com/Unyime94" target="_blank" rel="noopener noreferrer">

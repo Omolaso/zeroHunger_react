@@ -79,10 +79,11 @@
     /* margin: 0 auto; */
 }
 
-.team .me img, .team .her img{
+.team .me #img, .team .her #img{
     width: 250px;
     height: auto;
     border-radius: 50%;
+    border: 3px solid var(--deepGrey);
 }
 
 #githubImg{
