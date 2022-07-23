@@ -3,9 +3,26 @@ import '../styles/SharedProducts.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import icon from '../images/icon.svg'
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement } from '../redux-slice/CartSlice'
 
 
 const SharedProducts = () => {
+    // REDUX
+    const { quantity } = useSelector((store) => store.cart)
+    const dispatch = useDispatch();
+
+    const increase = () => dispatch(increment());
+    const decrease = () => {
+      if(quantity === 0){
+
+      }else{
+        dispatch(decrement())
+      }
+    };
+
+    // REDUX ENDS
+
   const { productsId } = useParams();
   const navigate = useNavigate();
   const [produce, setProduce] = useState([]);
@@ -28,6 +45,7 @@ const SharedProducts = () => {
     navigate('/Home');
   }
 
+
   if(produce.length === 0){
     return(
       <div className='imgDiv'>
@@ -36,6 +54,8 @@ const SharedProducts = () => {
     </div>
     )
   }
+
+
 
   return (
     <section className='productSection'>
@@ -49,13 +69,17 @@ const SharedProducts = () => {
           <h3> Current Price: ₦ { price } </h3>
           <h3>About the product:</h3>
           <p id='para'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero unde voluptatem alias, quam dolore ipsa! Quaerat, quas.</p>
-          <div className='cart'>
-            <button> - </button>
-            <span id='cart'>Add to cart</span>
-            <button> + </button> <br /> <br />
-          </div>
           <div id='back-home'>
-            <button onClick={goToProducts}>Back Home</button>
+
+          <div className='add-to-cart'>
+            <h4>Add to cart</h4>
+            <button onClick={decrease}> - </button>
+            <span id='cart'>{quantity}</span>
+            <button onClick={increase}> + </button><br />
+
+          </div>
+          <br />
+          <button onClick={goToProducts}>Back To Products</button>
           </div>
         </div>
       </div>

@@ -26,7 +26,7 @@ const Products = () => {
       </div>
     )
   }
-  const results = get.results
+const results = get.results
   // console.log(results);
 
   return (

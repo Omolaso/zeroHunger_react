@@ -10,9 +10,10 @@
 }
 
 .shared_products{
-    margin: 50px auto;
+    margin: 60px auto;
     color: var(--white);
     width: 80%;
+    height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,15 +56,15 @@ button{
     margin-top: 10px;
 }
 
-.cart{
+/* .add-to-cart{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    /* height: 70px;
+    height: 70px;
     line-height: 70px;
-    margin: 0px auto; */
-}
+    margin: 0px auto;
+} */
 
 #cart{
     color: var(--black);
@@ -71,6 +72,9 @@ button{
     font-weight: 700;
 }
 
+
+
+/* load */
 .imgDiv{
     text-align: center;
     margin-top: 5rem;

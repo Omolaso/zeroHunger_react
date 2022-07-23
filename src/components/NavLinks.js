@@ -12,11 +12,8 @@ import { useSelector } from 'react-redux';
 
 const NavLinks = () => {
   //REDUX
-  //  const { amount } = useSelector((store) => store.cart)
-   const { amount } = useSelector((state) => state.cart)
-
-
-
+   const { amount } = useSelector((store) => store.cart)
+  
   //REDUX ENDS
   const navigate = useNavigate();
   const Login = () => {
