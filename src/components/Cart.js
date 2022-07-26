@@ -23,7 +23,7 @@ const Cart = () => {
 
     useEffect(() => {
       dispatch(calculateTotal())
-    }, [cartItems]);
+    }, [cartItems, dispatch]);
 
     // REDUX
 

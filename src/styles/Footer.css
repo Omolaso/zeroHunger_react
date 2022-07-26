@@ -1,15 +1,8 @@
-.Footer{
-    margin-top: 80vh;
-    height: 50px;
-    line-height: 50px;
-    background: var(--green);
+.footer {
+    padding: 1em 0;
     text-align: center;
 }
 
-p{
-    color: var(--black);
-}
-
-span{
+span {
     color: var(--deepBlue);
 }
