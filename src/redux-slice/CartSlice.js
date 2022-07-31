@@ -5,8 +5,9 @@ import products  from '../external/items.js';
 const initialState = {
     cartItems: products,
     quantity: 0,
-    amount: 0,
+    cartAmount: [],
     total: 0,
+    items: {}
 };
 
 const cartSlice = createSlice({
@@ -14,30 +15,35 @@ const cartSlice = createSlice({
     initialState,
     reducers:{
         clearCart: (state) => {
-            state.cartItems = []
+            state.cartAmount = []
         },
-        increment: (state) => {
-            state.quantity += 1
+        increment: (state, action) => {
+            if(state.items[`${action.payload.name}`]){
+                state.cartAmount.push(action.payload)
+                state.items[`${action.payload.name}`] = parseInt(state.items[`${action.payload.name}`]) + 1
+            }
+            else{
+                state.items[`${action.payload.name}`] = 1
+                state.cartAmount.push(action.payload)
+            }
+            // console.log(action);
         },
-        decrement: (state) => {
-            state.quantity -= 1
-        },
-        calculateTotal: (state) => {
-            let amount = 0;
-            let total = 0;
-            let quantity = state.quantity;
-            state.cartItems.forEach(item => {
-                amount = quantity;
-                total += amount * item.price
-            })
-            state.amount = amount;
-            state.total = total;
+
+        decrement: (state, action) => {
+            if(state.items[`${action.payload.name}`]){
+                state.cartAmount.pop(action.payload)
+                state.items[`${action.payload.name}`] = parseInt(state.items[`${action.payload.name}`]) - 1
+            }
+            else{
+                state.items[`${action.payload.name}`] = 1
+                state.cartAmount.pop(action.payload)
+            }
         },
     },
 });
 
 // console.log(cartSlice);
 
-export const {clearCart, increment, decrement, calculateTotal} = cartSlice.actions;
+export const {clearCart, increment, decrement} = cartSlice.actions;
 
 export default cartSlice.reducer;

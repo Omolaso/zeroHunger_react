@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-// import CartItem from './CartItem';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { calculateTotal, clearCart } from '../redux-slice/CartSlice'
+import { clearCart } from '../redux-slice/CartSlice'
 import '../styles/cart.css';
+import uuid from 'react-uuid';
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -13,40 +13,40 @@ const Cart = () => {
     dispatch(clearCart());
   }
 
-  function goToProducts(){
-    navigate('/Home');
-  }
+  const { cartAmount } = useSelector((store) => store.cart);
 
-  const { cartItems, amount, total } = useSelector((store) => store.cart);
-
-    // REDUX
-
-    useEffect(() => {
-      dispatch(calculateTotal())
-    }, [cartItems, dispatch]);
-
-    // REDUX
-
-  if(amount < 1){
+  if(cartAmount.length < 1){
     return(
       <h1 className='empty-cart'>Your cart is empty</h1>
     )
   }
 
+  const totalAmount = `${cartAmount.reduce(function (acc, obj) { return acc + obj.price; }, 0)}`
+
+  //back home
+
+  function goToProducts(){
+    navigate('/Home');
+  }
+
   return (
-    <div>
-        <h1>Your Items</h1>
-        <section>
-          {/* {
-            cartItems.map((item) => (
-              <CartItem key={item.id} {...item}/>
+    <div className='cart-section'>
+        <h2>Your Items</h2>
+        <h3> Total amount of selected products: ₦ {totalAmount}</h3>
+        <section className='cart-items'>
+          {
+            cartAmount.map((item) => (
+              <div key={uuid()} className='item-list'>
+                 <p>{item.name}</p>
+                 <p>₦ {item.price}</p>
+                 <button className='remove-item'>Remove item</button>
+              </div>
             ))
-          } */}
+          }
         </section>
         <footer>
-          <hr />
           <div className='total'>
-            <h2>Total: ₦{total}</h2>
+            <h2>Total: ₦ {totalAmount}</h2>
           </div>
         </footer>
         <hr />

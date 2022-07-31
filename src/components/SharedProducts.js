@@ -9,16 +9,19 @@ import { increment, decrement } from '../redux-slice/CartSlice'
 
 const SharedProducts = () => {
     // REDUX
-    const { quantity } = useSelector((store) => store.cart)
+
+    const { cartAmount } = useSelector((store) => store.cart)
     const dispatch = useDispatch();
 
-    const increase = () => dispatch(increment());
-    const decrease = () => {
-      if(quantity === 0){
+    const increase = ( name, price) => {
+      const productObj = { name, price }
+      dispatch(increment(productObj))
+    };
 
-      }else{
-        dispatch(decrement())
-      }
+
+    const decrease = (name, price) => {
+      const productObj = { name, price }
+      dispatch(decrement(productObj))
     };
 
     // REDUX ENDS
@@ -36,16 +39,19 @@ const SharedProducts = () => {
   }
 
   useEffect(() => {
-    getProduct()
+    getProduct()    //Calling the function
   });
 
-  const { name, product_img, price } = produce
+  const { name, product_img, price } = produce  //from useState
 
+
+  // back home
   function goToProducts(){
     navigate('/Home');
   }
 
 
+  //animation
   if(produce.length === 0){
     return(
       <div className='imgDiv'>
@@ -55,8 +61,7 @@ const SharedProducts = () => {
     )
   }
 
-
-
+  //JSX
   return (
     <section className='productSection'>
      <div className='shared_products'>
@@ -64,22 +69,20 @@ const SharedProducts = () => {
           <img src={ product_img } alt={ name } />
         </div>
         <div id='productDetails'>
-          {/* <h1> {productsId} </h1> */}
           <h1> { name } </h1>
           <h3> Current Price: ₦ { price } </h3>
           <h3>About the product:</h3>
           <p id='para'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero unde voluptatem alias, quam dolore ipsa! Quaerat, quas.</p>
+          
           <div id='back-home'>
-
-          <div className='add-to-cart'>
-            <h4>Add to cart</h4>
-            <button onClick={decrease}> - </button>
-            <span id='cart'>{quantity}</span>
-            <button onClick={increase}> + </button><br />
-
-          </div>
-          <br />
-          <button onClick={goToProducts}>Back To Products</button>
+            <div className='add-to-cart'>
+              <h4>Add to cart</h4>
+              <button onClick={() => decrease(name, price)}> - </button>
+              <span id='cart'>{cartAmount.filter((item) => item.name === name).length}</span>
+              <button onClick={() => increase(name, price)}> + </button>
+            </div>
+            <br />
+            <button onClick={goToProducts}>Back To Products</button>
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ const hamburgerSlice = createSlice({
     initialState,
     reducers: {
         handleHamburgerToggle: (state) => {
+            // state.isHamActive = true;
             state.isHamActive = !state.isHamActive;
         },
         removeSideBar: (state) => {

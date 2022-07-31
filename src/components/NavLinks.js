@@ -15,22 +15,27 @@ import SideBar from './SideBar';
 
 
 const NavLinks = () => {
+
   //REDUX
   const dispatch = useDispatch();
-  const { amount } = useSelector((state) => state.cart);
-  const {isSearchActive }  = useSelector((state) => state.search);
+  const { cartAmount } = useSelector((state) => state.cart);
+  const { isSearchActive }  = useSelector((state) => state.search);
+
 
   //remove search field when window is resized
   useEffect(() => {
     function removeSearch() {
       dispatch(removeSearchField())
     }
-
     window.addEventListener('resize', removeSearch);
-  })
+  });
 
 
   //REDUX ENDS
+
+
+  // ROUTER
+
   const navigate = useNavigate();
   const Login = () => {
     navigate('/Login');
@@ -38,6 +43,8 @@ const NavLinks = () => {
   const Cart = () => {
     navigate('/Cart');
   }
+
+  // ROUTER ENDS
 
   return (
     <>
@@ -55,11 +62,10 @@ const NavLinks = () => {
           <li onClick={()=>dispatch(handleSearchToggle())}> <FontAwesomeIcon className={`search-icon ${isSearchActive ? "hide-search-icon" : ""}`} icon={faSearch}/> </li>
           <div className="cart-container">
             <li> <FontAwesomeIcon id='cart' onClick={Cart} icon={ faCartShopping }/></li>
-            <p className="amount">{amount}</p>
+            <p className="amount">{cartAmount.length}</p>
           </div>
           <li> <button onClick={Login}>Login</button> </li>
           <li className='hamburger' onClick={()=>dispatch(handleHamburgerToggle())}> <FontAwesomeIcon id='bars' icon={faBars}/> </li>
-
        </ul>
     </nav>
     <SideBar />
