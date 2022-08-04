@@ -15,6 +15,11 @@ const SharedProducts = () => {
     const { cartAmount } = useSelector((store) => store.cart)
     const dispatch = useDispatch();
 
+    // const increase = ( name, price, id = uuid() ) => {
+    //   const productObj = { name, price, id }
+    //   dispatch(increment(productObj))
+    // };
+
     const increase = ( name, price ) => {
       const productObj = { name, price }
       dispatch(increment(productObj))
@@ -82,6 +87,7 @@ const SharedProducts = () => {
               <button className='decrease' onClick={() => decrease(name, price)}> - </button>
               <span id='cart'>{cartAmount.filter((item) => item.name === name).length}</span>
               <button className='increase' onClick={() => increase(name, price)}> + </button>
+              {/* <button className='increase' onClick={() => increase(name, price, id)}> + </button> */}
             </div>
             <br />
             <button className='back' onClick={goToProducts}>Back To Products</button>

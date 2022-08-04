@@ -5,16 +5,65 @@
 }
 
 .login{
-    /* background: var(--wine); */
-    padding: 10px;
-    height: 100vh;
+    min-height: 90vh;
+    /* border: 1px solid; */
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 0 ;
 }
 
-form{
-    /* border: 1px solid; */
-    width: 30%;
-    margin: auto;
-    padding: 10%;
-    line-height: 2rem;
-    /* background: var(--purple); */
+.formDiv{
+    height: 450px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem ;
+}
+
+.formDiv form{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem ;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 50%;
+    height: 400px;
+}
+
+.formDiv form h1{
+    padding: 1rem 0;
+    text-align: center ;
+    color: var(--green);
+}
+
+.formDiv form #name{
+    font-size: 17px;
+    padding: 0.5rem 0;
+    /* color: var(--green); */
+}
+
+.formDiv form input{
+    padding: 0.7rem 2.5rem;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--deepGrey);
+}
+
+.formDiv form #btn{
+    text-align: center ;
+}
+
+.formDiv form #btn button{
+    padding: 0.5rem 1rem;
+    border: 1px solid;
+    cursor: pointer;
+    border-radius: 5px;
+    background: transparent;
+}
+
+.formDiv form #btn button:hover{
+    opacity: 0.7;
 }

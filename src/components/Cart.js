@@ -17,7 +17,7 @@ const Cart = () => {
   }
 
   const { cartAmount } = useSelector((store) => store.cart);
-  console.log(cartAmount);
+  // console.log(cartAmount);
 
   if(cartAmount.length < 1){
     return(
@@ -25,8 +25,7 @@ const Cart = () => {
     )
   }
 
-  // const totalAmount = `${cartAmount.reduce(function (acc, obj) { return acc + obj.price; }, 0)}`
-  const totalAmount = `${cartAmount.reduce((total, item) =>  total + item.price, 0)}`
+  const totalAmount = `${cartAmount.reduce((total, item) =>  total + item.price, 0)}` // 'item from the cartAmount array'
 
   //back home
 
@@ -47,8 +46,6 @@ const Cart = () => {
               <div key={uuid()} className='item-list'>
                  <p>{item.name}</p>
                  <p>₦ {item.price}</p>
-                 {/* <p id='pin'>{item.id}</p> */}
-                 {/* <button onClick={remove} className='remove-item'>Remove item</button> */}
                  <button onClick={remove} className='remove-item'>Remove item</button>
               </div>
             ))
@@ -64,7 +61,7 @@ const Cart = () => {
             <button className='clear-cart' onClick={clear}>Clear Cart</button>
             <button className='home' onClick={goToProducts}>Back to Products</button>
           </div>
-          
+
           <div className='checkout-div'>
             <button className='checkout'>Check Out</button>
           </div>

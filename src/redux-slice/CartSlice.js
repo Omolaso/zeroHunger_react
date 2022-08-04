@@ -4,7 +4,6 @@ import products  from '../external/items.js';
 
 const initialState = {
     cartItems: products,
-    quantity: 0,
     cartAmount: [],
     total: 0,
     items: {}
@@ -19,9 +18,7 @@ const cartSlice = createSlice({
         },
 
         removeItem: (state, action) => {
-            const itemName = action.payload;
-            state.cartAmount = state.cartAmount.filter((item) => 
-            item.name !== itemName);
+           console.log(state.cartAmount);
         },
 
         increment: (state, action) => {
@@ -33,7 +30,7 @@ const cartSlice = createSlice({
                 state.items[`${action.payload.name}`] = 1
                 state.cartAmount.push(action.payload)
             }
-            console.log(action);
+            // console.log(action);
         },
 
         decrement: (state, action) => {
