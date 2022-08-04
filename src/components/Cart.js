@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { clearCart } from '../redux-slice/CartSlice'
+import { clearCart, removeItem } from '../redux-slice/CartSlice'
 import '../styles/cart.css';
 import uuid from 'react-uuid';
 
@@ -12,8 +12,12 @@ const Cart = () => {
   const clear = ()=> {
     dispatch(clearCart());
   }
+  const remove = ()=> {
+    dispatch(removeItem());
+  }
 
   const { cartAmount } = useSelector((store) => store.cart);
+  console.log(cartAmount);
 
   if(cartAmount.length < 1){
     return(
@@ -21,13 +25,17 @@ const Cart = () => {
     )
   }
 
-  const totalAmount = `${cartAmount.reduce(function (acc, obj) { return acc + obj.price; }, 0)}`
+  // const totalAmount = `${cartAmount.reduce(function (acc, obj) { return acc + obj.price; }, 0)}`
+  const totalAmount = `${cartAmount.reduce((total, item) =>  total + item.price, 0)}`
 
   //back home
 
   function goToProducts(){
     navigate('/Home');
   }
+
+    //back home
+
 
   return (
     <div className='cart-section'>
@@ -39,19 +47,29 @@ const Cart = () => {
               <div key={uuid()} className='item-list'>
                  <p>{item.name}</p>
                  <p>₦ {item.price}</p>
-                 <button className='remove-item'>Remove item</button>
+                 {/* <p id='pin'>{item.id}</p> */}
+                 {/* <button onClick={remove} className='remove-item'>Remove item</button> */}
+                 <button onClick={remove} className='remove-item'>Remove item</button>
               </div>
             ))
           }
         </section>
+        
         <footer>
           <div className='total'>
             <h2>Total: ₦ {totalAmount}</h2>
           </div>
+
+          <div className='clear'>
+            <button className='clear-cart' onClick={clear}>Clear Cart</button>
+            <button className='home' onClick={goToProducts}>Back to Products</button>
+          </div>
+          
+          <div className='checkout-div'>
+            <button className='checkout'>Check Out</button>
+          </div>
         </footer>
-        <hr />
-        <button className='clear-cart' onClick={clear}>Clear Cart</button>
-        <button className='home' onClick={goToProducts}>Go Home</button>
+        
     </div>
   )
 }

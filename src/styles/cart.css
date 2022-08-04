@@ -19,6 +19,8 @@
     align-items: center;
     justify-content: space-around;
     border: 1px solid;
+    padding: 1rem 0;
+    background: var(--deepGrey);
 }
 
 .item-list p{
@@ -26,11 +28,46 @@
     text-align: center;
 }
 
+.clear{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1.5rem 0;
+}
+
+.checkout-div{
+    padding: 1rem 0;
+    text-align: center;
+    /* border: 1px solid; */
+}
+
 .remove-item,
 .clear-cart,
+.checkout,
 .home{
     appearance: none;
     border: 1px solid;
     background: none;
-    padding: 0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-item:hover,
+.clear-cart:hover,
+.checkout:hover,
+.home:hover{
+    opacity: 0.8;
+}
+
+.remove-item:active,
+.clear-cart:active,
+.checkout:active,
+.home:active{
+    opacity: 0.5;
+}
+
+#pin{
+    border: 1px solid;
 }

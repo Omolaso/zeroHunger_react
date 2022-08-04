@@ -9,7 +9,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const About = () => {
   return (
-    <section>
+    <section className='about-section'>
       <div className="container">
         <div className="text">
           <div className='about'>

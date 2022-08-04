@@ -60,10 +60,12 @@ const NavLinks = () => {
       <ul className='nav2'>
           <li> <input type="text" placeholder='Search' className={`search-field ${isSearchActive ? "show-search-field" : ""}`}/> </li>
           <li onClick={()=>dispatch(handleSearchToggle())}> <FontAwesomeIcon className={`search-icon ${isSearchActive ? "hide-search-icon" : ""}`} icon={faSearch}/> </li>
+          
           <div className="cart-container">
             <li> <FontAwesomeIcon id='cart' onClick={Cart} icon={ faCartShopping }/></li>
             <p className="amount">{cartAmount.length}</p>
           </div>
+          
           <li> <button onClick={Login}>Login</button> </li>
           <li className='hamburger' onClick={()=>dispatch(handleHamburgerToggle())}> <FontAwesomeIcon id='bars' icon={faBars}/> </li>
        </ul>

@@ -5,6 +5,8 @@ import axios from 'axios';
 import icon from '../images/icon.svg'
 import { useSelector, useDispatch } from 'react-redux';
 import { increment, decrement } from '../redux-slice/CartSlice'
+// import uuid from 'react-uuid';
+
 
 
 const SharedProducts = () => {
@@ -13,18 +15,19 @@ const SharedProducts = () => {
     const { cartAmount } = useSelector((store) => store.cart)
     const dispatch = useDispatch();
 
-    const increase = ( name, price) => {
+    const increase = ( name, price ) => {
       const productObj = { name, price }
       dispatch(increment(productObj))
     };
-
-
+   
     const decrease = (name, price) => {
       const productObj = { name, price }
       dispatch(decrement(productObj))
     };
 
     // REDUX ENDS
+
+    //ROUTER
 
   const { productsId } = useParams();
   const navigate = useNavigate();
@@ -49,7 +52,6 @@ const SharedProducts = () => {
   function goToProducts(){
     navigate('/Home');
   }
-
 
   //animation
   if(produce.length === 0){
@@ -77,12 +79,12 @@ const SharedProducts = () => {
           <div id='back-home'>
             <div className='add-to-cart'>
               <h4>Add to cart</h4>
-              <button onClick={() => decrease(name, price)}> - </button>
+              <button className='decrease' onClick={() => decrease(name, price)}> - </button>
               <span id='cart'>{cartAmount.filter((item) => item.name === name).length}</span>
-              <button onClick={() => increase(name, price)}> + </button>
+              <button className='increase' onClick={() => increase(name, price)}> + </button>
             </div>
             <br />
-            <button onClick={goToProducts}>Back To Products</button>
+            <button className='back' onClick={goToProducts}>Back To Products</button>
           </div>
         </div>
       </div>

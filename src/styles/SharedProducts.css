@@ -47,15 +47,34 @@ img{
     line-height: 20px;
 }
 
-button{
-    padding: 10px;
-    cursor: pointer;
-}
-
 #back-home{
     text-align: center;
     margin-top: 10px;
 }
+
+.increase,
+.decrease,
+.back{
+    appearance: none;
+    border: 1px solid;
+    background: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.increase:hover,
+.decrease:hover,
+.back:hover{
+    background-color: white;
+}
+
+.increase:active,
+.decrease:active,
+.back:active{
+    opacity: 0.5;
+}
+
 
 #cart{
     color: var(--black);
