@@ -37,9 +37,15 @@ const NavLinks = () => {
   // ROUTER
 
   const navigate = useNavigate();
+
   const Login = () => {
     navigate('/Login');
   }
+
+  const SignUp = () => {
+    navigate('/Signup');
+  }
+
   const Cart = () => {
     navigate('/Cart');
   }
@@ -67,6 +73,7 @@ const NavLinks = () => {
           </div>
           
           <li> <button onClick={Login}>Login</button> </li>
+          <li> <button onClick={SignUp}>Sign Up</button> </li>
           <li className='hamburger' onClick={()=>dispatch(handleHamburgerToggle())}> <FontAwesomeIcon id='bars' icon={faBars}/> </li>
        </ul>
     </nav>

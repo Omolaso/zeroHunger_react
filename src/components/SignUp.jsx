@@ -1,18 +1,17 @@
 import React from 'react';
-import '../styles/Login.css';
 import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
-  const navigate = useNavigate();
-  const SignUp = () => {
-    navigate('/Signup');
-  }
+const SignUp = () => {
+    const navigate = useNavigate();
+    const login = () => {
+      navigate('/Login');
+    }
 
   return (
-    <div className='login'>
+    <div className='signup'>
         <div className='formDiv'>
           <form>
-              <h1>Sign In</h1>
+              <h1>Sign Up</h1>
               <label htmlFor="email" id='name'> Email: </label>
               <input type="email" placeholder='Enter your email'/>
 
@@ -21,10 +20,10 @@ const Login = () => {
               <br />
               <br />
               <div id='btn'>
-                <button >Sign In</button>
+                <button >Sign Up</button>
               </div>
               <div id='btn'>
-                <p>Don't have an account? <button onClick={SignUp}>Sign up</button> </p>
+                <p>Already have an account? <button onClick={login}>Sign in</button> </p>
               </div>
           </form>
         </div>
@@ -32,4 +31,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp

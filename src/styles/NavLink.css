@@ -123,6 +123,7 @@ nav {
     border-radius: 5px;
     color: var(--white);
     cursor: pointer;
+    margin: 0 0.5rem;
 }
 
 .nav2 #cart {
