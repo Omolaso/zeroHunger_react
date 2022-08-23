@@ -33,7 +33,19 @@ const Cart = () => {
     navigate('/Home');
   }
 
-    //back home
+  //back home
+
+  //checkout
+
+  function checkout(){
+    if(window.confirm('Are you sure?')){
+      clear();
+      navigate('/Dummy');
+    }else{
+      return
+    }    
+}
+  //checkout
 
 
   return (
@@ -63,7 +75,7 @@ const Cart = () => {
           </div>
 
           <div className='checkout-div'>
-            <button className='checkout'>Check Out</button>
+            <button onClick={checkout} className='checkout'>Check Out</button>
           </div>
         </footer>
         

@@ -9,10 +9,11 @@ import Cart from './components/Cart';
 import SharedLayout from './components/SharedLayout';
 import Products from './components/Products';
 import SharedProducts from './components/SharedProducts';
+import Dummy from './components/Dummy';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Routes>
         <Route path='/' element={<SharedLayout/>}>
           <Route index element={<Home/>}/>
@@ -24,6 +25,7 @@ function App() {
           <Route path='/Login' element={<Login/>}/>
           <Route path='/SignUp' element={<SignUp/>}/>
           <Route path='/Cart' element={<Cart/>}/>
+          <Route path='/Dummy' element={<Dummy/>}/>
           <Route path='*' element={<Error/>}/>
         </Route>
       </Routes>
