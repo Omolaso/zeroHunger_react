@@ -1,4 +1,5 @@
-import React, { useEffect} from 'react';
+import React from 'react';
+// import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -23,13 +24,22 @@ const NavLinks = () => {
 
 
   //remove search field when window is resized
-  useEffect(() => {
-    function removeSearch() {
-      dispatch(removeSearchField())
-    }
-    window.addEventListener('resize', removeSearch);
-  });
 
+  // useEffect(() => {
+  //   function removeSearch() {
+  //     dispatch(removeSearchField())
+  //   }
+  //   window.addEventListener('resize', removeSearch);
+  // });
+
+  function removeSearch() {
+    dispatch(removeSearchField());
+    const search = document.getElementById('item-search');
+    search.value = '';
+  }
+  window.addEventListener('resize', removeSearch);
+
+  //remove search field when window is resized
 
   //REDUX ENDS
 
@@ -64,7 +74,7 @@ const NavLinks = () => {
           <li><Link to='/Contact' id='link'>Contact Us</Link></li>
       </ul>
       <ul className='nav2'>
-          <li> <input type="text" placeholder='Search' className={`search-field ${isSearchActive ? "show-search-field" : ""}`}/> </li>
+          <li onMouseLeave={removeSearch}> <input type="text" id='item-search' placeholder='Search' className={`search-field ${isSearchActive ? "show-search-field" : ""}`}/> </li>
           <li onClick={()=>dispatch(handleSearchToggle())}> <FontAwesomeIcon className={`search-icon ${isSearchActive ? "hide-search-icon" : ""}`} icon={faSearch}/> </li>
           
           <div className="cart-container">
